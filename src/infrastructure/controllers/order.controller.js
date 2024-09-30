@@ -3,6 +3,7 @@ import { createOrder, findAllOrders, findOrderById } from "../../application/ser
 
 export async function createOrderController(req, res) {
   const items = req.body
+  console.log("Items seleccionados", items.length)
  try {
    const { customer } = req.params;
    const it = await createOrder(items, customer);

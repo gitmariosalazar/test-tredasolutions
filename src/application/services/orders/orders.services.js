@@ -12,6 +12,11 @@ export async function createOrder(items, customer) {
   const productRepository = new ProductRepository();
 
   let total = 0;
+  if (items.length == 0) {
+    throw new Error(
+      `Order items array is empty`
+    );
+  }
   // Procesar los detalles de la orden y calcular el total
   const details = await Promise.all(
     items.map(async (val) => {

@@ -1,7 +1,29 @@
-# Proyecto de Gestión de Órdenes
+# Proyecto de Gestión de Órdenes y Devoluciones
 
-Este proyecto es una API para gestionar órdenes, productos y usuarios en un sistema de comercio electrónico.
+Este proyecto es una API para gestionar órdenes, productos y usuarios, devoluciones, reembolsos.
 
+# Proceso del Proyecto
+
+## 1. Registro de Usuario
+- El usuario se registra en el sistema proporcionando la información necesaria.
+
+## 2. Inicio de Sesión
+- El usuario inicia sesión con las credenciales de su cuenta registrada.
+
+## 3. Generación de Orden o Pedido
+- El usuario selecciona los productos deseados y crea un pedido.
+- Una vez realizada la orden con éxito, el inventario de los productos seleccionados se actualiza y se disminuye en consecuencia.
+
+## 4. Registro de Devolución
+- El cliente solicita la devolución de un producto. Se crea un registro en la tabla de devoluciones con el estado inicial "requested".
+- El sistema evalúa la solicitud y actualiza el estado de la devolución a "pendiente", y posteriormente puede cambiar a "aprobada" o "rechazada".
+- Si la devolución es aprobada, el usuario tiene la opción de solicitar un reembolso.
+
+## 5. Procesamiento de Reembolso
+- Si la devolución es aprobada, el usuario puede solicitar un reembolso por el valor del ítem seleccionado, generando un registro en la tabla de reembolsos con el estado "requested".
+- Una vez creada la solicitud de reembolso, el usuario puede decidir aprobar o rechazar la solicitud.
+- En cualquier momento, el registro puede actualizarse a un estado "returned", indicando la finalización del proceso de devolución.
+- Si se aprueba el reembolso (estado "returned"), el monto correspondiente se reembolsa al cliente y el registro se marca como "returned". Además, los valores totales de la orden se actualizan y los productos se reincorporan al inventario y al stock en la base de datos.
 
 ## Instrucciones para Configurar la Base de Datos
 
@@ -42,7 +64,7 @@ Crea un archivo `.env` en la raíz de tu proyecto y asegúrate de incluir las si
 
 ```env
 # Configuración del servidor
-LISTEN_PORT=3000                 # Puerto en el que se ejecutará la aplicación
+LISTEN_PORT=4000                 # Puerto en el que se ejecutará la aplicación
 
 # Configuración de la base de datos PostgreSQL
 DB_USERNAME=postgres              # Usuario de la base de datos
@@ -62,7 +84,7 @@ La API cuenta con una documentación interactiva generada con Swagger que te per
 1. **Inicia la aplicación** siguiendo los pasos de configuración y ejecución descritos anteriormente.
 
 2. **Accede a Swagger** abriendo tu navegador web y visitando la siguiente URL: http://localhost:4000/api/docs
-> Reemplaza `3000` con el puerto en el que se esté ejecutando tu aplicación si has configurado uno diferente.
+> Reemplaza `4000` con el puerto en el que se esté ejecutando tu aplicación si has configurado uno diferente.
 
 ## Cómo Probar los Endpoints
 
