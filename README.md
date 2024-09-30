@@ -9,17 +9,17 @@ Este proyecto es una API para gestionar órdenes, productos y usuarios en un sis
 
 2. Crea una base de datos:
     ```sql
-    CREATE DATABASE ecommerce_db;
+    CREATE DATABASE test_tredasolutions; --dbname
     ```
 ## Instrucciones para Ejecutar la Aplicación Localmente
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/gitmariosalazar/test-tredasolutions.git
    ```
 2. Accede al directorio del proyecto:
    ```bash
-   cd tu_repositorio
+   cd test-tredasolutions
    ```
 3. Instala las dependencias:
    ```bash
@@ -61,7 +61,7 @@ La API cuenta con una documentación interactiva generada con Swagger que te per
 
 1. **Inicia la aplicación** siguiendo los pasos de configuración y ejecución descritos anteriormente.
 
-2. **Accede a Swagger** abriendo tu navegador web y visitando la siguiente URL: http://localhost:3000/api/docs
+2. **Accede a Swagger** abriendo tu navegador web y visitando la siguiente URL: http://localhost:4000/api/docs
 > Reemplaza `3000` con el puerto en el que se esté ejecutando tu aplicación si has configurado uno diferente.
 
 ## Cómo Probar los Endpoints
